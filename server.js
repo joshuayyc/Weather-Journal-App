@@ -36,12 +36,12 @@ function listening () {
     console.log(`running on localhost: ${port}`);
 }
 
-// 
+//
 // app.post('/add', function (request, response) {
 //     let data = request.body;
 //     console.log(data);
 //     console.log("testing working");
-//     // projectData = [];
-//     // projectData.push(request.body);
-//     // console.log(projectData);
+//     projectData=[];
+//     projectData.push(request.body);
+//     console.log(projectData);
 // });

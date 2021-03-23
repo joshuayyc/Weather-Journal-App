@@ -1,36 +1,48 @@
 /* Global Variables */
-// Add API credentials
-const baseURL = 'http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=';
-const apiKey = '5fd028b76c2b7becba18184aef4d202e';
-// let apiKey = '{5fd028b76c2b7becba18184aef4d202e}';
-
 const button = document.querySelector('#generate');
 button.addEventListener('click', pullData);
 
+
 function pullData (e) {
     console.log ("pullData Test");
-    getWeather(baseURL,apiKey);
+    const zipField = document.querySelector('#zip');
+    if (zipField.value == "" || zipField.validity.patternMismatch) {
+        console.log("Please enter your zip code in XXXXX format")
+    }
+    else {
+        let zipCode = zipField.value;
+        let feelings = document.querySelector('#feelings').value;
+        const baseURL = `http://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&appid=`;
+        // 94040
+        //98101
+        // api.openweathermap.org/data/2.5/weather?zip=94040,us&appid={API key}
+        let apiKey = '5fd028b76c2b7becba18184aef4d202e';
+        getWeather(baseURL,apiKey,feelings);
+    }
 }
 
-const getWeather = async (baseURL,apiKey) => {
-    const res = await fetch (baseURL+apiKey)
+const getWeather = async (baseURL,apiKey,feelings) => {
+    const res = await fetch (baseURL+apiKey);
     try {
         const data = await res.json();
         console.log(data);
-
         // Get date, temp, content newData
-        let date = data.list[0].dt_txt;
-        console.log (date);
 
-        let temp = data.list[0].main.temp;
+        // Create a new date instance dynamically with JS
+        let d = new Date();
+        let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+        console.log (newDate);
+
+        let temp = data.main.temp;
         console.log (temp);
 
-        let content = data.list[0].weather[0].description;
+        let content = data.weather[0].description;
         console.log (content);
 
-        document.querySelector('#date').innerText = date;
-        document.querySelector('#temp').innerHTML = temp;
-        document.querySelector('#content').innerHTML = content;
+        document.querySelector('#date').innerText = `Date: ${newDate}`;
+        document.querySelector('#temp').innerHTML = `Temperature: ${temp}`;
+        document.querySelector('#content').innerHTML = `Weather: ${content}`;
+        console.log(feelings);
         return data;
     }
     catch (error) {
@@ -38,11 +50,6 @@ const getWeather = async (baseURL,apiKey) => {
         //handle error
     }
 }
-
-
-// Create a new date instance dynamically with JS
-let d = newDate();
-let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 // const postData = async ( url = '', data = {})=>{
 //     console.log(data);
@@ -65,5 +72,5 @@ let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 //       // appropriately handle the error
 //       }
 //   }
-
+//
 // postData('/add', {answer:42});
