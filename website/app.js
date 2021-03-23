@@ -1,4 +1,17 @@
 /* Global Variables */
+const button = document.querySelector('#generate');
+button.addEventListener('click', pullData);
+
+function pullData (e) {
+    console.log ("pullData Test");
+}
+
+// Create a new date instance dynamically with JS
+// let d = new Date();
+// let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+
+
+
 const postData = async ( url = '', data = {})=>{
     console.log(data);
       const response = await fetch(url, {
@@ -22,7 +35,3 @@ const postData = async ( url = '', data = {})=>{
   }
 
 postData('/add', {answer:42});
-
-// Create a new date instance dynamically with JS
-// let d = new Date();
-// let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
