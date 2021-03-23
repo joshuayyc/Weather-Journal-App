@@ -17,6 +17,20 @@ const getWeather = async (baseURL,apiKey) => {
     try {
         const data = await res.json();
         console.log(data);
+
+        // Get date, temp, content newData
+        let date = data.list[0].dt_txt;
+        console.log (date);
+
+        let temp = data.list[0].main.temp;
+        console.log (temp);
+
+        let content = data.list[0].weather[0].description;
+        console.log (content);
+
+        document.querySelector('#date').innerText = date;
+        document.querySelector('#temp').innerHTML = temp;
+        document.querySelector('#content').innerHTML = content;
         return data;
     }
     catch (error) {
@@ -26,13 +40,9 @@ const getWeather = async (baseURL,apiKey) => {
 }
 
 
-
-
-
-
 // Create a new date instance dynamically with JS
-// let d = new Date();
-// // let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+let d = newDate();
+let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 // const postData = async ( url = '', data = {})=>{
 //     console.log(data);
