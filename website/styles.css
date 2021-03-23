@@ -44,8 +44,9 @@ body {
 .headline {
 
 }
-.title{
 
+.title{
+    color: black;
 }
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
@@ -80,7 +81,7 @@ button:hover {
     opacity: 0.3;
 }
 
-h1{
+#h1{
     font-size: 36px;
     font-family: 'Chango', cursive;
     text-align: center;
