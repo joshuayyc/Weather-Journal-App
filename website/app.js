@@ -51,26 +51,51 @@ const getWeather = async (baseURL,apiKey,feelings) => {
     }
 }
 
-// const postData = async ( url = '', data = {})=>{
-//     console.log(data);
-//       const response = await fetch(url, {
-//       method: 'POST', //*GET, POST, PUT, DELETE, etc...
-//       credentials: 'same-origin',
-//       headers: {
-//           'Content-Type': 'application/json', //run on JSON data, naturally runs on strings
-//       },
-//      // Body data type must match "Content-Type" header
-//       body: JSON.stringify(data),
-//     });
-//
-//       try {
-//         const newData = await response.json();
-//         console.log(newData);
-//         return newData;
-//       }catch(error) {
-//       console.log("error", error);
-//       // appropriately handle the error
-//       }
-//   }
-//
-// postData('/add', {answer:42});
+const postData = async ( url = '', data = {})=>{
+    console.log(data);
+      const response = await fetch(url, {
+      method: 'POST', //*GET, POST, PUT, DELETE, etc...
+      credentials: 'same-origin',
+      headers: {
+          'Content-Type': 'application/json', //run on JSON data, naturally runs on strings
+      },
+     // Body data type must match "Content-Type" header
+      body: JSON.stringify(data),
+    });
+      try {
+        const newData = await response.json();
+        // console.log(newData);
+        return newData;
+      }catch(error) {
+      console.log("error", error);
+      // appropriately handle the error
+      }
+  }
+
+postData('/add', {movie:'the matrix', score:5});
+// postData('/add', {movie:'pitchPerfect', score:4.5});
+
+
+const testData = async ( url = '', data = {})=>{
+    console.log(data);
+      const response = await fetch(url, {
+      method: 'GET', //*GET, POST, PUT, DELETE, etc...
+      credentials: 'same-origin',
+      headers: {
+          'Content-Type': 'application/json', //run on JSON data, naturally runs on strings
+      },
+     // Body data type must match "Content-Type" header
+      body: JSON.stringify(data),
+    });
+      try {
+        const newData = await response.json();
+        // console.log(newData);
+        return newData;
+      }catch(error) {
+      console.log("error", error);
+      // appropriately handle the error
+      }
+  }
+
+testData('/test', {test:'the test1', test2:5});
+
