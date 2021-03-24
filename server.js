@@ -36,47 +36,22 @@ function listening () {
     console.log(`running on localhost: ${port}`);
 }
 
-//
-// app.post('/add', function (request, response) {
-//     let data = request.body;
-//     console.log(data);
-//     console.log("testing working");
-//     projectData=[];
-//     projectData.push(request.body);
-//     console.log(projectData);
-// });
-
 /* SET-UP HANDLERS - used to directly respond to HTTP requests, such as GET and POST*/
 
 // Add a GET route that returns projectData in server code
 // GET request is used to access data from the project's end point - projectData
 // Get method takes 2 arguments: 1 string (url path - root (home)), 2 callback function (req,res) --> request and response. 
-app.get('/test', function(req,res){
-    res.send("hello world");
+// This route will send projectData back to client side , which can be retrieved to update UI elements.
+app.get('/all', function(req,res){
     res.send(projectData);
+    // res.send("Hello world!");
 })
 
 // Add a POST route that adds incoming data to projectData [HTTP POST request sends data to the project's end point - visible in git bash console]
 // Data added to endpoint projectData, can then be accessed later using a GET request.
-// app.post('/add', function(req, res){
-//     res.send ("Post received");
-//     console.log(req.body);
-//     projectData.push(req.body);
-//     console.log(projectData);
-// })
-
-
 app.post('/add', function(request, response) {
     let data = request.body;
-    let newEntry = {
-        movie: data.movie, 
-        score: data.score
-        };
-    projectData.push(newEntry);
+    console.log(data);
+    projectData.push(data);
     console.log(projectData);
-    // projectData['movie'] = data.movie
-    // console.log (projectData);
 });
-
-
-// postData('/add', {movie:'the matrix', score:5});
