@@ -48,6 +48,7 @@ const getWeather = async (baseURL,apiKey, feelings) => {
         console.log("error, error");
         //handle error
     }
+}
 
 const postData = async ( url = '', data = {})=>{
     // console.log(data);
@@ -72,14 +73,14 @@ const postData = async ( url = '', data = {})=>{
 
 const updateUI = async () => {
   const request = await fetch('/all');
-  try{
+  try {
     const allData = await request.json();
     console.log(allData);
     document.querySelector('#date').innerText = 'Date: '+allData[0].date;
     document.querySelector('#temp').innerHTML = 'Temperature: '+allData[0].temperature;
     document.querySelector('#content').innerHTML = 'Feelings: '+allData[0].content;
-  }catch(error){
+  }
+  catch(error){
     console.log("error", error);
   }
-}
 }
