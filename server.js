@@ -20,7 +20,6 @@ app.use(cors());
 // Initialize the main project folder
 app.use(express.static('website'));
 
-
 // Setup Server
 const port = 8001;
 
@@ -37,10 +36,9 @@ function listening () {
 }
 
 /* SET-UP HANDLERS - used to directly respond to HTTP requests, such as GET and POST*/
-
 // Add a GET route that returns projectData in server code
 // GET request is used to access data from the project's end point - projectData
-// Get method takes 2 arguments: 1 string (url path - root (home)), 2 callback function (req,res) --> request and response. 
+// Get method takes 2 arguments: 1 string (url path - root (home)), 2 callback function (req,res) --> request and response.
 // This route will send projectData back to client side , which can be retrieved to update UI elements.
 app.get('/all', function(req,res){
     res.send(projectData);
