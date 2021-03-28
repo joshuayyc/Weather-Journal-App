@@ -41,7 +41,7 @@ const getWeather = async (baseURL,apiKey, feelings) => {
 
         // Create new data object combining date, temperature and feelings
         // Post data to server using '/add' URL
-        const newData = {date:newDate, temperature:temp,content:feelings};
+        const newData = {date:newDate, temperature:temp,content: feelings};
         // console.log(newData);
         return newData;
     }
