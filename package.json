@@ -1,0 +1,33 @@
+{
+  "name": "weather-journal-app",
+  "version": "1.0.0",
+  "description": "Weather Journal App Project Javascript",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm test command",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshuayyc/Weather-Journal-App.git"
+  },
+  "keywords": [
+    "'server'",
+    "'client'",
+    "'browser'",
+    "'api'",
+    "'javascript'"
+  ],
+  "author": "Josh C <joshuayyc@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshuayyc/Weather-Journal-App/issues"
+  },
+  "homepage": "https://github.com/joshuayyc/Weather-Journal-App#readme"
+}
